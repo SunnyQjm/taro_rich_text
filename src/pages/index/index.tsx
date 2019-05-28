@@ -1,8 +1,17 @@
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import Taro, { PureComponent, Config } from '@tarojs/taro'
+import { View } from '@tarojs/components'
+import TaroRichText from '../../components/taro-rich-text';
 import './index.scss'
 
-export default class Index extends Component {
+
+interface IndexProps {
+
+}
+
+interface IndexState {
+  richText: string,
+}
+export default class Index extends  PureComponent<IndexProps, IndexState>{
 
   /**
    * 指定config的类型声明为: Taro.Config
@@ -13,6 +22,13 @@ export default class Index extends Component {
    */
   config: Config = {
     navigationBarTitleText: '首页'
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      richText: '> ### 列表示例\n- 星期一\n  - 摸鱼\n  - 学习\n  - 刷剧\n- 星期二\n - 摸一天鱼\n\n> ### 图片示例\n![学伴小程序](https://user-images.githubusercontent.com/7202516/58466803-03ff6b80-816d-11e9-8afd-f56bdff5a60a.jpg)\n\n> ### 链接示例\n[学伴H5](https://xueban.qjm253.cn/h5)\n\n> ### 表格示例\n\nname | 价格 |  数量  \n-|-|-\n香蕉 | $1 | 5 |\n苹果 | $1 | 6 |\n草莓 | $1 | 7 |'
+    }
   }
 
   componentWillMount () { }
@@ -26,9 +42,19 @@ export default class Index extends Component {
   componentDidHide () { }
 
   render () {
+    const {
+      richText
+    } = this.state;
     return (
-      <View className='index'>
-        <Text>Hello world!</Text>
+      <View className='index' style={{
+        padding: Taro.pxTransform(20)
+      }}
+      >
+        <TaroRichText
+          raw={false}
+          type='markdown'
+          richText={richText}
+        />
       </View>
     )
   }

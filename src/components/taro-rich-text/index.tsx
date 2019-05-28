@@ -12,11 +12,12 @@ export interface XbRichTextImageClickCallbackData {
 }
 
 interface XbRichTextComponentProps {
-  richText: string,
-  raw: boolean,
-  rawMaxLength: number,
-  type: 'markdown' | 'html',
+  richText: string,                   // Markdown Or Html 富文本
+  raw: boolean,                       // 是否显示无格式文本
+  rawMaxLength: number,               // 显示的无格式文本的最大长度
+  type: 'markdown' | 'html',          // 富文本类型，Markdown支持跨端，目前html主要是针对微信小程序端，使用微信小程插件wxParse来实现
   customStyle: string,
+  // 图片点击回调
   onImageClick: (image: XbRichTextImageClickCallbackData) => void
 }
 
@@ -26,9 +27,9 @@ interface XbRichTextComponentState {
 
 class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, XbRichTextComponentState> {
   config: Config = {
-    usingComponents: {
-      wxparser: 'plugin://wxparserPlugin/wxparser'
-    }
+    // usingComponents: {
+    //   wxparser: 'plugin://wxparserPlugin/wxparser'
+    // }
   };
 
   static defaultProps = {
@@ -88,7 +89,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -434,6 +435,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       type
     } = this.props;
     const result = this.mdParser.parse(richText);
+    console.log(result);
     let rawText = '';
     if (raw) {
       result.forEach(block => {
