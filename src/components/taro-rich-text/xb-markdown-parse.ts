@@ -45,7 +45,7 @@ class XbMarkdownParse {
     raw: false
   }) {
     this.tokens = this.parser.parse(md, {});
-    console.log(this.tokens);
+    // console.log(this.tokens);
 
     // markdown 渲染列表
     this.renderList = [];

@@ -181,10 +181,9 @@ $highlight-color: #d05;
 }
 
 .xb-rich-text-table {
-  width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
-  font-size: $fs_0_6;
+  font-size: $fs_0_9;
   /* border-left: 1px solid #e0e0e0; */
   /* border-top: 1px solid #e0e0e0; */
 }
@@ -198,10 +197,6 @@ $highlight-color: #d05;
 }
 
 .xb-rich-text-table_tr {
-  display: flex;
-}
-
-.xb-rich-text-table_tr {
   display: table-row;
 }
 
@@ -209,7 +204,7 @@ $highlight-color: #d05;
 .xb-rich-text-table_td {
   display: table-cell;
   flex: 1;
-  padding: 5px;
+  padding: 10px;
   word-break: break-all;
   border: 1px solid #e0e0e0;
   text-align: center;
@@ -218,6 +213,18 @@ $highlight-color: #d05;
 .xb-rich-text-table_th {
   background: #f0f0f0;
   /* border-top:1px solid #e0e0e0; */
+}
+
+.xb-rich-text-strong {
+  font-weight: bold;
+  padding: 0 5px;
+  word-wrap: break-word;
+}
+
+.xb-rich-text-em {
+  font-style: italic;
+  padding: 0 5px;
+  word-wrap: break-word;
 }
 
 .wemark_wrapper_richtext .wemark_inline_table_th,

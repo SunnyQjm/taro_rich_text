@@ -78,7 +78,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -115,7 +115,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -152,7 +152,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -189,7 +189,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -226,7 +226,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -263,7 +263,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -300,7 +300,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -337,7 +337,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -374,7 +374,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -411,7 +411,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
             lazyLoad mode='aspectFit'
             onClick={this.onImageClick.bind(this, block)}
           />
-          <Text className='xb-rich-text-image-title'>{block.title}</Text>
+          <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
     } else if (block.type === 'fence') {   //处理代码块
@@ -435,7 +435,6 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       type
     } = this.props;
     const result = this.mdParser.parse(richText);
-    console.log(result);
     let rawText = '';
     if (raw) {
       result.forEach(block => {
