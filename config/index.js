@@ -1,3 +1,5 @@
+// import path from 'path';
+
 const config = {
   projectName: 'taro_rich_text',
   date: '2019-5-28',
@@ -91,6 +93,33 @@ const config = {
         }
       }
     }
+  }
+}
+
+if (process.env.TARO_BUILD_TYPE === 'ui') {
+  Object.assign(config.h5, {
+    enableSourceMap: false,
+    enableExtract: false,
+    enableDll: false
+  })
+  config.h5.webpackChain = chain => {
+    chain.plugins.delete('htmlWebpackPlugin')
+    chain.plugins.delete('addAssetHtmlWebpackPlugin')
+    chain.merge({
+      output: {
+        path: path.join(process.cwd(), 'dist', 'h5'),
+        filename: 'index.js',
+        libraryTarget: 'umd',
+        library: 'taro-ui-sample'
+      },
+      externals: {
+        nervjs: 'commonjs2 nervjs',
+        classnames: 'commonjs2 classnames',
+        '@tarojs/components': 'commonjs2 @tarojs/components',
+        '@tarojs/taro-h5': 'commonjs2 @tarojs/taro-h5',
+        'weui': 'commonjs2 weui'
+      }
+    })
   }
 }
 
