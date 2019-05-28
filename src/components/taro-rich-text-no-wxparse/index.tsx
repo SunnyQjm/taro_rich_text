@@ -1,8 +1,8 @@
-import Taro, { Config } from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 import { View, Text, Image } from '@tarojs/components';
-import XbMarkdownParse from './xb-markdown-parse';
+import XbMarkdownParse from '../taro-rich-text/xb-markdown-parse';
 
-import './index.scss';
+import '../taro-rich-text/index.scss';
 
 // import XbRichTextBlock from './xb-rich-text-block';
 
@@ -26,11 +26,6 @@ interface XbRichTextComponentState {
 
 
 class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, XbRichTextComponentState> {
-  config: Config = {
-    usingComponents: {
-      wxparser: 'plugin://wxparserPlugin/wxparser'
-    }
-  };
 
   static defaultProps = {
     richText: '',
