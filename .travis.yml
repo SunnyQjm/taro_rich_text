@@ -5,12 +5,12 @@ dist: xenial
 cache: npm
 
 script:
-#  - npm run test
+  - npm install
   - npm run build:ui
 
 before_install:
   - ls
-  - ls dist/
+#  - ls dist/
 
 deploy:
   provider: npm
