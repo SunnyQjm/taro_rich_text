@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/SunnyQjm/taro_rich_text.svg?branch=master)](https://travis-ci.com/SunnyQjm/taro_rich_text)
 [![](https://img.shields.io/npm/v/taro_rich_text.svg?style=flat-square)](https://www.npmjs.com/package/taro_rich_text)
 [![](https://img.shields.io/npm/l/taro_rich_text.svg?style=flat-square)](https://www.npmjs.com/package/taro_rich_text)
 [![](https://img.shields.io/npm/dt/taro_rich_text.svg?style=flat-square)](https://www.npmjs.com/package/taro_rich_text)
