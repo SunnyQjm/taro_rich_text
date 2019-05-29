@@ -8,6 +8,17 @@ script:
 #  - npm run test
   - npm run build:ui
 
+before_install:
+  - ls
+  - ls dist/
+
+deploy:
+  provider: npm
+  email: "$NPM_EMAIL"
+  api_key: "$NPM_TOKEN"
+  skip_cleanup: true
+  on:
+    tags: true
 
 #jobs:
 #  include:
