@@ -5,7 +5,7 @@ dist: xenial
 cache: npm
 
 script:
-  - npm install
+#  - npm install
   - npm run build:ui
 
 before_install:
