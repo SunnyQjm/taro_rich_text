@@ -19,7 +19,7 @@ jobs:
         - npm run build:ui
       deploy:
         provider: npm
-        email: "$NPM_EMAL"
+        email: "$NPM_EMAIL"
         api_key: "$NPM_TOKEN"
         skip_cleanup: true
         on:
