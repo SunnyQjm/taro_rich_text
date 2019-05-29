@@ -1,3 +1,6 @@
+[![](https://img.shields.io/npm/v/taro_rich_text.svg?style=flat-square)](https://www.npmjs.com/package/taro_rich_text)
+[![](https://img.shields.io/npm/l/taro_rich_text.svg?style=flat-square)](https://www.npmjs.com/package/taro_rich_text)
+[![](https://img.shields.io/npm/dt/taro_rich_text.svg?style=flat-square)](https://www.npmjs.com/package/taro_rich_text)
 > # taro_rich_text
 
 taro_rich_text 是Taro小程序框架下使用的跨端的Markdown解析组件，目前测试在微信小程序端和H5端的Markdown解析的正常的
