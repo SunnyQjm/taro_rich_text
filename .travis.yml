@@ -9,18 +9,18 @@ script:
   - npm run build:ui
 
 
-jobs:
-  include:
-    - stage: npm release
-      if: tag is present
-      node_js:
-        - "12"
-      script:
-        - npm run build:ui
-      deploy:
-        provider: npm
-        email: "$NPM_EMAIL"
-        api_key: "$NPM_TOKEN"
-        skip_cleanup: true
-        on:
-          tags: true
+#jobs:
+#  include:
+#    - stage: npm release
+#      if: tag is present
+#      node_js:
+#        - "12"
+#      script:
+#        - npm run build:ui
+#      deploy:
+#        provider: npm
+#        email: "$NPM_EMAIL"
+#        api_key: "$NPM_TOKEN"
+#        skip_cleanup: true
+#        on:
+#          tags: true
