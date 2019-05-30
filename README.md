@@ -7,7 +7,26 @@
 
 taro_rich_text 是Taro小程序框架下使用的跨端的Markdown解析组件，目前测试在微信小程序端和H5端的Markdown解析的正常的
 
-> ### 使用方式
+> ## 注意
+
+ - ### 如果希望使用本组件在微信小程序端使用wxParse解析HTML
+   如果需要在微信小程序端使用wxParse解析HTML，则需要在开发者中心添加wxParse插件，添加方式参考[wxParse-plugin](https://github.com/ifanrx/wxParser-plugin)
+ 
+ - ### 如果只想使用本组件的Markdown解析功能，不希望添加wxParse插件
+   本组件提供了不包含wxParse插件的版本，则可引用 `TaroRichTextNoWxParse` 组件，使用方式和参数同 `TaroRichText`
+   此时会默认使用RichText来解析HTML富文本
+   ```tsx
+   import {
+    TaroRichTextNoWxParse
+    } from 'taro_rich_text';
+   ``` 
+  
+ - ### Taro 1.3.0-beta.5 版本 前后差异
+  在`Taro 1.3.0-beta.5`之前包括`1.3.0-beta.5`的版本，在解析函数式组件的分支逻辑的时候存在bug，所以`taro_rich_text 1.0.4`包括`1.0.4`之前的版本对此做了特殊处理，所以
+  - Taro版本 > 1.3.0-beta.5 则对应使用 taro_rich_text > 1.0.4
+  - Taro版本 <= 1.3.0-beta.5 则对应使用 taro_rich_text <= 1.0.4
+  
+> ## 使用方式
 
 - 首先用npm安装
   ```bash
@@ -28,7 +47,7 @@ taro_rich_text 是Taro小程序框架下使用的跨端的Markdown解析组件�
   />
   ```
 
-> ### 参数说明
+> ## 参数说明
 | 参数名 | 参数类型 | 参数说明 |
 | ------ | ------ | ------ |
 | richText | string | 富文本（Markdown文本） |
@@ -39,15 +58,3 @@ taro_rich_text 是Taro小程序框架下使用的跨端的Markdown解析组件�
 | onLinkClick | (src: string) => void | Markdown中链接被点击的回调 |
 
 
-> ### 注意
- - #### 如果希望使用本组件在微信小程序端使用wxParse解析HTML
-   如果需要在微信小程序端使用wxParse解析HTML，则需要在开发者中心添加wxParse插件，添加方式参考[wxParse-plugin](https://github.com/ifanrx/wxParser-plugin)
- 
- - #### 如果只想使用本组件的Markdown解析功能，不希望添加wxParse插件
-   本组件提供了不包干wxParse插件的版本，则可引用 `TaroRichTextNoWxParse` 组件，使用方式和参数同 `TaroRichText`
-   此时会默认使用RichText来解析HTML富文本
-   ```tsx
-   import {
-    TaroRichTextNoWxParse
-    } from 'taro_rich_text';
-   ``` 
