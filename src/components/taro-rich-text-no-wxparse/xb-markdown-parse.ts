@@ -269,6 +269,7 @@ class XbMarkdownParse {
   table_open(token: any, index: number, options) {
     this.commonOpenDeal(token, index, {
       ...options,
+      type: 'table',
       className: `${this.STYLE_PREFIX}table`
     });
   }

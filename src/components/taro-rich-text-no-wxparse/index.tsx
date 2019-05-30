@@ -78,6 +78,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
 
   render0(block, index) {
     let dom_block: any = null;
+    const children = block.children && (
+      block.children.map((child, i) => {
+          return this.render1(child, i);
+        }
+      )
+    );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -95,17 +101,23 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
+    } else if (block.type === 'table') {
+      dom_block = (
+        <View style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+          <View className={block.className} key={index}>
+            {children}
+          </View>
+        </View>
+      )
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          {
-            block.children && (
-              block.children.map((child, i) => {
-                  return this.render1(child, i);
-                }
-              )
-            )
-          }
+          {children}
         </View>);
     }
     return dom_block;
@@ -113,6 +125,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
 
   render1(block, index) {
     let dom_block: any = null;
+    const children = block.children && (
+      block.children.map((child, i) => {
+          return this.render2(child, i);
+        }
+      )
+    );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -126,21 +144,27 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
-    } else if (block.type === 'fence') {   //处理代码块
+    } else if (block.type === 'fence') {   // 处理代码块
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
+    } else if (block.type === 'table') {
+      dom_block = (
+        <View style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+          <View className={block.className} key={index}>
+            {children}
+          </View>
+        </View>
+      )
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          {
-            block.children && (
-              block.children.map((child, i) => {
-                  return this.render2(child, i);
-                }
-              )
-            )
-          }
+          {children}
         </View>);
     }
     return dom_block;
@@ -148,6 +172,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
 
   render2(block, index) {
     let dom_block: any = null;
+    const children = block.children && (
+              block.children.map((child, i) => {
+                  return this.render3(child, i);
+                }
+              )
+            );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -161,21 +191,27 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
-    } else if (block.type === 'fence') {   //处理代码块
+    } else if (block.type === 'fence') {   // 处理代码块
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
+    } else if (block.type === 'table') {
+      dom_block = (
+        <View style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+          <View className={block.className} key={index}>
+            {children}
+          </View>
+        </View>
+      )
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          {
-            block.children && (
-              block.children.map((child, i) => {
-                  return this.render3(child, i);
-                }
-              )
-            )
-          }
+          { children }
         </View>);
     }
     return dom_block;
@@ -183,6 +219,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
 
   render3(block, index) {
     let dom_block: any = null;
+    const children = block.children && (
+              block.children.map((child, i) => {
+                  return this.render4(child, i);
+                }
+              )
+            );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -196,21 +238,27 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
-    } else if (block.type === 'fence') {   //处理代码块
+    } else if (block.type === 'fence') {   // 处理代码块
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
+    } else if (block.type === 'table') {
+      dom_block = (
+        <View style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+          <View className={block.className} key={index}>
+            {children}
+          </View>
+        </View>
+      )
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          {
-            block.children && (
-              block.children.map((child, i) => {
-                  return this.render4(child, i);
-                }
-              )
-            )
-          }
+          { children }
         </View>);
     }
     return dom_block;
@@ -218,6 +266,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
 
   render4(block, index) {
     let dom_block: any = null;
+    const children = block.children && (
+              block.children.map((child, i) => {
+                  return this.render5(child, i);
+                }
+              )
+            );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -231,21 +285,27 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
-    } else if (block.type === 'fence') {   //处理代码块
+    } else if (block.type === 'fence') {   // 处理代码块
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
+    } else if (block.type === 'table') {
+      dom_block = (
+        <View style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+          <View className={block.className} key={index}>
+            {children}
+          </View>
+        </View>
+      )
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          {
-            block.children && (
-              block.children.map((child, i) => {
-                  return this.render5(child, i);
-                }
-              )
-            )
-          }
+          { children }
         </View>);
     }
     return dom_block;
@@ -253,6 +313,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
 
   render5(block, index) {
     let dom_block: any = null;
+    const children = block.children && (
+              block.children.map((child, i) => {
+                  return this.render6(child, i);
+                }
+              )
+            );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -266,21 +332,27 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
-    } else if (block.type === 'fence') {   //处理代码块
+    } else if (block.type === 'fence') {   // 处理代码块
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
+    } else if (block.type === 'table') {
+      dom_block = (
+        <View style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+          <View className={block.className} key={index}>
+            {children}
+          </View>
+        </View>
+      )
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          {
-            block.children && (
-              block.children.map((child, i) => {
-                  return this.render6(child, i);
-                }
-              )
-            )
-          }
+          { children }
         </View>);
     }
     return dom_block;
@@ -288,6 +360,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
 
   render6(block, index) {
     let dom_block: any = null;
+    const children = block.children && (
+              block.children.map((child, i) => {
+                  return this.render7(child, i);
+                }
+              )
+            );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -301,21 +379,27 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
-    } else if (block.type === 'fence') {   //处理代码块
+    } else if (block.type === 'fence') {   // 处理代码块
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
+    } else if (block.type === 'table') {
+      dom_block = (
+        <View style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+          <View className={block.className} key={index}>
+            {children}
+          </View>
+        </View>
+      )
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          {
-            block.children && (
-              block.children.map((child, i) => {
-                  return this.render7(child, i);
-                }
-              )
-            )
-          }
+          { children }
         </View>);
     }
     return dom_block;
@@ -323,6 +407,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
 
   render7(block, index) {
     let dom_block: any = null;
+    const children = block.children && (
+              block.children.map((child, i) => {
+                  return this.render8(child, i);
+                }
+              )
+            );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -336,21 +426,27 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
-    } else if (block.type === 'fence') {   //处理代码块
+    } else if (block.type === 'fence') {   // 处理代码块
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
+    } else if (block.type === 'table') {
+      dom_block = (
+        <View style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+          <View className={block.className} key={index}>
+            {children}
+          </View>
+        </View>
+      )
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          {
-            block.children && (
-              block.children.map((child, i) => {
-                  return this.render8(child, i);
-                }
-              )
-            )
-          }
+          { children }
         </View>);
     }
     return dom_block;
@@ -358,6 +454,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
 
   render8(block, index) {
     let dom_block: any = null;
+    const children = block.children && (
+              block.children.map((child, i) => {
+                  return this.render9(child, i);
+                }
+              )
+            );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -371,21 +473,27 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
-    } else if (block.type === 'fence') {   //处理代码块
+    } else if (block.type === 'fence') {   // 处理代码块
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
+    } else if (block.type === 'table') {
+      dom_block = (
+        <View style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+          <View className={block.className} key={index}>
+            {children}
+          </View>
+        </View>
+      )
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          {
-            block.children && (
-              block.children.map((child, i) => {
-                  return this.render9(child, i);
-                }
-              )
-            )
-          }
+          { children }
         </View>);
     }
     return dom_block;
@@ -452,7 +560,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else if (type === 'html') {
       return (
         <View style={customStyle}>
-          <RichText nodes={richText} />
+          <RichText nodes={richText}/>
         </View>
       );
     }
