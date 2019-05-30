@@ -1,14 +1,14 @@
 import Taro from '@tarojs/taro';
-import { View, Text, Image } from '@tarojs/components';
-import XbMarkdownParse from '../taro-rich-text/xb-markdown-parse';
+import {View, Text, Image, RichText} from '@tarojs/components';
+import XbMarkdownParse from './xb-markdown-parse';
 
-import '../taro-rich-text/index.scss';
+import './index.scss';
 
 // import XbRichTextBlock from './xb-rich-text-block';
 
 export interface XbRichTextImageClickCallbackData {
   src: string,
-  title: string
+  alt: string
 }
 
 interface XbRichTextComponentProps {
@@ -18,7 +18,9 @@ interface XbRichTextComponentProps {
   type: 'markdown' | 'html',          // 富文本类型，Markdown支持跨端，目前html主要是针对微信小程序端，使用微信小程插件wxParse来实现
   customStyle: string,
   // 图片点击回调
-  onImageClick: (image: XbRichTextImageClickCallbackData) => void
+  onImageClick: (image: XbRichTextImageClickCallbackData) => void,
+  // 链接点击回调
+  onLinkClick: (link: string) => void,
 }
 
 interface XbRichTextComponentState {
@@ -34,18 +36,31 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     type: 'markdown',
     customStyle: '',
     onImageClick: () => {
+    },
+    onLinkClick: () => {
+
     }
   };
 
   constructor(props) {
     super(props);
     this.onImageClick = this.onImageClick.bind(this);
+    this.onLinkClick = this.onLinkClick.bind(this);
+    if (process.env.TARO_ENV === 'h5') {         // h5兼容
+      this.render0 = this.render0.bind(this);
+    }
   }
 
   mdParser = new XbMarkdownParse();
 
   onImageClick(block: XbRichTextImageClickCallbackData) {
     this.props.onImageClick(block);
+  }
+
+  onLinkClick(block) {
+    if (block.type === 'link') {
+      this.props.onLinkClick(block.href);
+    }
   }
 
   getRawText(block) {
@@ -76,15 +91,13 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           <Text className='xb-rich-text-image-title'>{block.alt}</Text>
         </View>
       );
-    } else if (block.type === 'fence') {   //处理代码块
+    } else if (block.type === 'fence') {   // 处理代码块
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
-    } else if (block) {
-      const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -117,11 +130,9 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
-    } else if (block) {
-      const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -154,11 +165,9 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
-    } else if (block) {
-      const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -191,11 +200,9 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
-    } else if (block) {
-      const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -228,11 +235,9 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
-    } else if (block) {
-      const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -265,11 +270,9 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
-    } else if (block) {
-      const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -302,11 +305,9 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
-    } else if (block) {
-      const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -339,11 +340,9 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
-    } else if (block) {
-      const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -376,11 +375,9 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       dom_block = (
         <View className={block.className} key={block.content + index}>{block.content}</View>
       );
-    } else if (block) {
-      const notuse = 1;
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
           {
             block.children && (
               block.children.map((child, i) => {
@@ -415,7 +412,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       );
     } else {
       dom_block = (
-        <View className={block.className} key={'what' + index}>
+        <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
         </View>);
     }
     return dom_block;
@@ -455,8 +452,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else if (type === 'html') {
       return (
         <View style={customStyle}>
-          {/*<RichText nodes={richText} />*/}
-          <wxparser rich-text={richText}/>
+          <RichText nodes={richText} />
         </View>
       );
     }

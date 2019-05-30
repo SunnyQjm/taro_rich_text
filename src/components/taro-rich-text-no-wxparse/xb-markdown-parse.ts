@@ -99,7 +99,7 @@ class XbMarkdownParse {
     }
   }
 
-  commonOpenDeal(token: any, index: number, options: any = null) {
+  commonOpenDeal(token: any, _: number, options: any = null) {
     let block: XbRenderBlock = {
       ...token,
       ...options,
@@ -138,7 +138,6 @@ class XbMarkdownParse {
   blockquote_open(token: any, index: number, options) {
     this.commonOpenDeal(token, index, {
       ...options,
-      type: 'link',
       className: `${this.STYLE_PREFIX}blockquote`
     });
   }
@@ -244,6 +243,7 @@ class XbMarkdownParse {
   link_open(token: any, index: number, options) {
     this.commonOpenDeal(token, index, {
       ...options,
+      type: 'link',
       className: `${this.STYLE_PREFIX}a`
     });
   }
