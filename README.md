@@ -3,6 +3,7 @@
 [![](https://img.shields.io/npm/l/taro_rich_text.svg?style=flat-square)](https://www.npmjs.com/package/taro_rich_text)
 [![](https://img.shields.io/npm/dt/taro_rich_text.svg?style=flat-square)](https://www.npmjs.com/package/taro_rich_text)
 > # taro_rich_text
+> 项目地址: [https://github.com/SunnyQjm/taro_rich_text](https://github.com/SunnyQjm/taro_rich_text)
 
 taro_rich_text 是Taro小程序框架下使用的跨端的Markdown解析组件，目前测试在微信小程序端和H5端的Markdown解析的正常的
 
@@ -35,14 +36,16 @@ taro_rich_text 是Taro小程序框架下使用的跨端的Markdown解析组件�
 | rawMaxLength | number | raw为true时本参数有效，表示最多显示多少个文字，超出部分显示成省略号（...） |
 | type | 'markdown' \| 'html' | 富文本类型，Markdown支持跨端，目前html主要是针对微信小程序端，使用微信小程插件wxParse来实现 |
 | omImageClick | (image: XbRichTextImageClickCallbackData) => void | Markdown中图片被点击的回调 |
+| onLinkClick | (src: string) => void | Markdown中链接被点击的回调 |
 
 
 > ### 注意
- - #### 如果希望使用本组件在微信小程序端解析HTML
-   如果需要在微信小程序中使用本组件，则需要在开发者中心添加wxParse插件，添加方式参考[wxParse-plugin](https://github.com/ifanrx/wxParser-plugin)
+ - #### 如果希望使用本组件在微信小程序端使用wxParse解析HTML
+   如果需要在微信小程序端使用wxParse解析HTML，则需要在开发者中心添加wxParse插件，添加方式参考[wxParse-plugin](https://github.com/ifanrx/wxParser-plugin)
  
  - #### 如果只想使用本组件的Markdown解析功能，不希望添加wxParse插件
    本组件提供了不包干wxParse插件的版本，则可引用 `TaroRichTextNoWxParse` 组件，使用方式和参数同 `TaroRichText`
+   此时会默认使用RichText来解析HTML富文本
    ```tsx
    import {
     TaroRichTextNoWxParse
