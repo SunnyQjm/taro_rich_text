@@ -59,3 +59,8 @@ taro_rich_text 是Taro小程序框架下使用的跨端的Markdown解析组件�
 | onLinkClick | (src: string) => void | Markdown中链接被点击的回调 |
 
 
+> ## 效果展示
+
+<img src="https://github.com/SunnyQjm/taro_rich_text/raw/master/documents/demo1.png" width="375"/>
+<img src="https://github.com/SunnyQjm/taro_rich_text/raw/master/documents/demo2.png" width="375"/>
+
