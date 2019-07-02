@@ -1,8 +1,7 @@
-// import path from 'path';
 
 const config = {
-  projectName: 'taro_rich_text',
-  date: '2019-5-28',
+  projectName: 'taro-rich-text',
+  date: '2019-7-1',
   designWidth: 750,
   deviceRatio: {
     '640': 2.34 / 2,
@@ -26,13 +25,10 @@ const config = {
       ]
     }
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
   },
   weapp: {
     module: {
@@ -49,9 +45,7 @@ const config = {
         },
         pxtransform: {
           enable: true,
-          config: {
-
-          }
+          config: {}
         },
         url: {
           enable: true,
@@ -95,7 +89,6 @@ const config = {
     }
   }
 }
-
 if (process.env.TARO_BUILD_TYPE === 'ui') {
   Object.assign(config.h5, {
     enableSourceMap: false,
@@ -122,7 +115,6 @@ if (process.env.TARO_BUILD_TYPE === 'ui') {
     })
   }
 }
-
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))

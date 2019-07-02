@@ -4,8 +4,6 @@ import XbMarkdownParse from './xb-markdown-parse';
 
 import './index.scss';
 
-// import XbRichTextBlock from './xb-rich-text-block';
-
 export interface XbRichTextImageClickCallbackData {
   src: string,
   alt: string
@@ -173,11 +171,11 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
   render2(block, index) {
     let dom_block: any = null;
     const children = block.children && (
-              block.children.map((child, i) => {
-                  return this.render3(child, i);
-                }
-              )
-            );
+      block.children.map((child, i) => {
+          return this.render3(child, i);
+        }
+      )
+    );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -211,7 +209,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          { children }
+          {children}
         </View>);
     }
     return dom_block;
@@ -220,11 +218,11 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
   render3(block, index) {
     let dom_block: any = null;
     const children = block.children && (
-              block.children.map((child, i) => {
-                  return this.render4(child, i);
-                }
-              )
-            );
+      block.children.map((child, i) => {
+          return this.render4(child, i);
+        }
+      )
+    );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -258,7 +256,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          { children }
+          {children}
         </View>);
     }
     return dom_block;
@@ -267,11 +265,11 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
   render4(block, index) {
     let dom_block: any = null;
     const children = block.children && (
-              block.children.map((child, i) => {
-                  return this.render5(child, i);
-                }
-              )
-            );
+      block.children.map((child, i) => {
+          return this.render5(child, i);
+        }
+      )
+    );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -305,7 +303,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          { children }
+          {children}
         </View>);
     }
     return dom_block;
@@ -314,11 +312,11 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
   render5(block, index) {
     let dom_block: any = null;
     const children = block.children && (
-              block.children.map((child, i) => {
-                  return this.render6(child, i);
-                }
-              )
-            );
+      block.children.map((child, i) => {
+          return this.render6(child, i);
+        }
+      )
+    );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -352,7 +350,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          { children }
+          {children}
         </View>);
     }
     return dom_block;
@@ -361,11 +359,11 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
   render6(block, index) {
     let dom_block: any = null;
     const children = block.children && (
-              block.children.map((child, i) => {
-                  return this.render7(child, i);
-                }
-              )
-            );
+      block.children.map((child, i) => {
+          return this.render7(child, i);
+        }
+      )
+    );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -399,7 +397,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          { children }
+          {children}
         </View>);
     }
     return dom_block;
@@ -408,11 +406,11 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
   render7(block, index) {
     let dom_block: any = null;
     const children = block.children && (
-              block.children.map((child, i) => {
-                  return this.render8(child, i);
-                }
-              )
-            );
+      block.children.map((child, i) => {
+          return this.render8(child, i);
+        }
+      )
+    );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -446,7 +444,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          { children }
+          {children}
         </View>);
     }
     return dom_block;
@@ -455,11 +453,11 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
   render8(block, index) {
     let dom_block: any = null;
     const children = block.children && (
-              block.children.map((child, i) => {
-                  return this.render9(child, i);
-                }
-              )
-            );
+      block.children.map((child, i) => {
+          return this.render9(child, i);
+        }
+      )
+    );
     if (block.type === 'text') {          // 处理文字
       dom_block = (<Text className={block.className} key={block.content + index}>{block.content}</Text>);
     } else if (block.type === 'image') {  // 处理图片
@@ -493,7 +491,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else {
       dom_block = (
         <View className={block.className} key={index} onClick={this.onLinkClick.bind(this, block)}>
-          { children }
+          {children}
         </View>);
     }
     return dom_block;
@@ -535,6 +533,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       type
     } = this.props;
     const result = this.mdParser.parse(richText);
+    console.log(result);
     let rawText = '';
     if (raw) {
       result.forEach(block => {
@@ -552,6 +551,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
           {
             raw ? rawText :
               result.map((block, index) => {
+                // return <Render1 block={block} index={index} key={index} />
                 return this.render0(block, index);
               })
           }
@@ -560,7 +560,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     } else if (type === 'html') {
       return (
         <View style={customStyle}>
-          <RichText nodes={richText}/>
+          <RichText nodes={richText} />
         </View>
       );
     }

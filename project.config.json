@@ -1,17 +1,13 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "taro_rich_text",
-	"description": "Taro框架的Markdown解析库（目前测试支持微信小程序端和H5端）",
-	"appid": "touristappid",
+	"projectname": "taro-rich-text",
+	"description": "",
+	"appid": "wxeeaa134413ade0f8",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": false,
 		"postcss": false,
-		"minified": true,
-		"newFeature": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"checkInvalidKey": true
+		"minified": false
 	},
 	"compileType": "miniprogram",
 	"simulatorType": "wechat",
