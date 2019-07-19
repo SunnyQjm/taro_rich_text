@@ -82,5 +82,5 @@ taro_rich_text 是Taro小程序框架下使用的跨端的Markdown解析组件�
 > ## 赞赏
 > 如果用起来觉得不错，那就，“打发点咯”
 
-<img src="https://raw.githubusercontent.com/SunnyQjm/taro_rich_text/master/document/zan_shang.png" width="375"/>
+![zan_shang.png](https://upload-images.jianshu.io/upload_images/7222676-cb1768158c77a23f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
