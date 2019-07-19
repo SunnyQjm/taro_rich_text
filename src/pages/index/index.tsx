@@ -47,12 +47,6 @@ export default class Index extends  PureComponent<IndexProps, IndexState>{
     Taro.previewImage({
       urls: [img.src, img.src]
     })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      })
   }
   handleOnLinkClick(src) {
     console.log(src);
