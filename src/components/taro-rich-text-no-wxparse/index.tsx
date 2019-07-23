@@ -9,19 +9,19 @@ export interface XbRichTextImageClickCallbackData {
   alt: string
 }
 
-interface XbRichTextComponentProps {
+export interface XbRichTextComponentProps {
   richText: string,                   // Markdown Or Html 富文本
-  raw: boolean,                       // 是否显示无格式文本
-  rawMaxLength: number,               // 显示的无格式文本的最大长度
-  type: 'markdown' | 'html',          // 富文本类型，Markdown支持跨端，目前html主要是针对微信小程序端，使用微信小程插件wxParse来实现
-  customStyle: string,
+  raw?: boolean,                       // 是否显示无格式文本
+  rawMaxLength?: number,               // 显示的无格式文本的最大长度
+  type?: 'markdown' | 'html',          // 富文本类型，Markdown支持跨端，目前html主要是针对微信小程序端，使用微信小程插件wxParse来实现
+  customStyle?: string,
   // 图片点击回调
-  onImageClick: (image: XbRichTextImageClickCallbackData) => void,
+  onImageClick?: (image: XbRichTextImageClickCallbackData) => void,
   // 链接点击回调
-  onLinkClick: (link: string) => void,
+  onLinkClick?: (link: string) => void,
 }
 
-interface XbRichTextComponentState {
+export interface XbRichTextComponentState {
 }
 
 
@@ -52,12 +52,12 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
   mdParser = new XbMarkdownParse();
 
   onImageClick(block: XbRichTextImageClickCallbackData) {
-    this.props.onImageClick(block);
+    this.props.onImageClick && this.props.onImageClick(block);
   }
 
   onLinkClick(block) {
     if (block.type === 'link') {
-      this.props.onLinkClick(block.href);
+      this.props.onLinkClick && this.props.onLinkClick(block.href);
     }
   }
 
@@ -528,10 +528,10 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
     const {
       richText,
       raw,
-      rawMaxLength,
       customStyle,
       type
     } = this.props;
+    let rawMaxLength = this.props.rawMaxLength ? this.props.rawMaxLength : 100;
     const result = this.mdParser.parse(richText);
     console.log(result);
     let rawText = '';

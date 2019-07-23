@@ -1,6 +1,6 @@
 {
 	"name": "taro_rich_text",
-	"version": "1.0.9",
+	"version": "1.1.0",
 	"description": "Taro框架的Markdown解析库（目前测试支持微信小程序端和H5端）",
 	"main": "dist/index.js",
 	"main:h5": "dist/h5/index.js",
@@ -9,6 +9,7 @@
 		"typescript": true,
 		"css": "sass"
 	},
+  "types": "./@types/index.d.ts",
 	"scripts": {
 		"build:weapp": "taro build --type weapp",
 		"build:swan": "taro build --type swan",
@@ -63,5 +64,9 @@
 		"nervjs": "^1.4.3",
 		"nerv-devtools": "^1.4.3",
 		"typescript": "^3.0.1"
-	}
+	},
+  "files": [
+    "dist",
+    "@types"
+  ]
 }
