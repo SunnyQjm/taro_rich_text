@@ -1,6 +1,6 @@
 {
 	"name": "taro_rich_text",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Taro框架的Markdown解析库（目前测试支持微信小程序端和H5端）",
 	"main": "dist/index.js",
 	"main:h5": "dist/h5/index.js",
