@@ -1,6 +1,7 @@
 import Taro, { PureComponent, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import TaroRichTextNoWxParse from '../../components/taro-rich-text-no-wxparse';
+import TaroRichText from "../../components/taro-rich-text";
 import './index.scss'
 
 
@@ -61,6 +62,10 @@ export default class Index extends  PureComponent<IndexProps, IndexState>{
         padding: Taro.pxTransform(20)
       }}
       >
+        <TaroRichText
+          type='html'
+          richText='<h1>H1</h1><h2>H2</h2>'
+          />
         <TaroRichTextNoWxParse
           raw={false}
           type='markdown'

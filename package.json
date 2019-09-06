@@ -9,7 +9,7 @@
 		"typescript": true,
 		"css": "sass"
 	},
-  "types": "./@types/index.d.ts",
+	"types": "./@types/index.d.ts",
 	"scripts": {
 		"build:weapp": "taro build --type weapp",
 		"build:swan": "taro build --type swan",
@@ -65,8 +65,8 @@
 		"nerv-devtools": "^1.4.3",
 		"typescript": "^3.0.1"
 	},
-  "files": [
-    "dist",
-    "@types"
-  ]
+	"files": [
+		"dist",
+		"@types"
+	]
 }
