@@ -1,12 +1,16 @@
-import Taro from '@tarojs/taro';
+import Taro, {Config} from '@tarojs/taro';
 import {View} from '@tarojs/components';
 import TaroRichTextNoWxParse, {
   XbRichTextComponentProps, XbRichTextComponentState
 } from '../taro-rich-text-no-wxparse';
-import TaroWxParse from '../taro_wx_parse';
 
 
 class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, XbRichTextComponentState> {
+  config: Config = {
+    usingComponents: {
+      wxparser: 'plugin://wxparserPlugin/wxparser'
+    }
+  };
 
   static defaultProps = {
     richText: '',
@@ -40,8 +44,7 @@ class XbRichTextComponent extends Taro.PureComponent<XbRichTextComponentProps, X
       return (
         <View style={customStyle}>
           {/*<RichText nodes={richText} />*/}
-          <TaroWxParse richText={richText}/>
-          {/*<wxparser rich-text={richText}/>*/}
+          <wxparser rich-text={richText}/>
         </View>
       );
     }
